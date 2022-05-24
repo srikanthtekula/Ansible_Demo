@@ -1,7 +1,7 @@
 ---
 # This playbook prints a simple debug message
 - name: Echo
-  hosts: 172.31.39.232
+  hosts: localhost
   connection: local
   gather_facts: true
   tasks:
