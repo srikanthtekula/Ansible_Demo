@@ -1,0 +1,22 @@
+---
+# This playbook prints a simple debug message
+- name: Echo
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  tasks:
+  - name: Print debug message
+    debug:
+      msg: "Hello, world!"
+
+- name: priting the names
+  hosts: localhost
+  tasks:
+  - name: printing the names
+    debug:
+      msg: "{{ item }}"
+    with_items:
+    - srikanth
+    - bhanu
+    - ravi
+    - sudhir
