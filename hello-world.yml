@@ -1,22 +1,9 @@
 ---
-# This playbook prints a simple debug message
-- name: Echo
-  hosts: localhost
-  connection: local
-  gather_facts: true
+- hosts: client_user
   tasks:
-  - name: Print debug message
-    debug:
-      msg: "Hello, world!"
-
-- name: priting the names
-  hosts: localhost
-  tasks:
-  - name: printing the names
-    debug:
-      msg: "{{ item }}"
-    with_items:
-    - srikanth
-    - bhanu
-    - ravi
-    - sudhir
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=latest
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
